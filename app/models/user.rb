@@ -8,14 +8,8 @@ class User < ApplicationRecord
               message: "only allows number, letters and underscore"
             }
 
-  validates :display_name, presence: true, 
-            length: {
-              minimum: 1, 
-              maximum: 30
-            }
-  
-  validates :bio, length: {maximum: 300}
-
+  validates :display_name, presence: true, length: { maximum: 30 }
+  validates :bio, length: { maximum: 300 }
   validates :born_at, presence: true
 
 end
