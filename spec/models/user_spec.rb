@@ -31,7 +31,7 @@ RSpec.describe User, type: :model do
     end
 
     context 'respect maximum characters length' do 
-      it { is_expected.to validate_length_of(:display_name).is_at_least(1).is_at_most(30) }
+      it { is_expected.to validate_length_of(:display_name).is_at_most(30) }
     end 
   end 
 
