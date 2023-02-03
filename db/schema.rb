@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_01_163738) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_03_111321) do
+  create_table "statuses", force: :cascade do |t|
+    t.text "body"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_statuses_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "handle"
     t.string "display_name"
@@ -20,4 +28,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_01_163738) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "statuses", "users"
 end
