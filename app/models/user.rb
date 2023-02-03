@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-
+  has_many :statuses
+  
   validates :handle, presence: true, #"check if the value is either nil or a blank string, that is, a string that is either empty or consists of whitespace" [Rails Guides]
             length: { in: 4..12 }, 
             uniqueness: true, 
