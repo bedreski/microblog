@@ -47,8 +47,9 @@ RSpec.describe User, type: :model do
       it { is_expected.to validate_presence_of(:born_at) }
     end 
 
-    context 'is greater than or equal to 13' do
-      # it { }
+    context 'is less than 13' do
+      subject { build :user, :under_min_age}
+      it { is_expected.not_to be_valid}
     end 
   end 
 end
