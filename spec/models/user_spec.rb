@@ -1,11 +1,16 @@
-require_relative '../spec_helper.rb'
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  before { FactoryBot.build(:user) }
+  before { build :user }
 
   describe 'handle' do
+
+    context 'is not within the pattern' do 
+      subject { build :user, :handle_is_not_in_pattern}
+      it { is_expected.not_to be_valid}
+    end 
+
     context 'is not empty' do
       it { is_expected.to validate_presence_of(:handle).on(:create) }
     end 
