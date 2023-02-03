@@ -11,5 +11,8 @@ class User < ApplicationRecord
   validates :display_name, presence: true, length: { maximum: 30 }
   validates :bio, length: { maximum: 300 }
   validates :born_at, presence: true
+  validate :born_at do
+    errors.add(:born_at, 'must be at least 13') unless born_at.nil? || born_at < Date.current - 13.years
+  end 
 
 end
