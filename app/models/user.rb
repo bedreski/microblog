@@ -1,10 +1,7 @@
 class User < ApplicationRecord
 
   validates :handle, presence: true, #"check if the value is either nil or a blank string, that is, a string that is either empty or consists of whitespace" [Rails Guides]
-            length: {
-              minimum: 4, 
-              maximum: 12,
-            },
+            length: { in: 4..12 }, 
             uniqueness: true, 
             format: {
               with: /\A[\w]+\z/,
