@@ -9,6 +9,6 @@ FactoryBot.define do
 
     trait :above_max_length do 
       body {'wwwsk'*130} 
-    end 
+    end
   end 
 end 
