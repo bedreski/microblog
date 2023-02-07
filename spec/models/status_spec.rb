@@ -4,10 +4,10 @@ RSpec.describe Status, type: :model do
   
   before { build :status }
 
-  describe 'status' do 
+  describe 'body' do 
 
     context 'when is not supplied' do 
-      subject { build :status, :is_empty}
+      subject { build :status, :is_empty} #body 
       it { is_expected.not_to be_valid }
     end 
 
