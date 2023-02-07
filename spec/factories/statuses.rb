@@ -1,6 +1,7 @@
 FactoryBot.define do 
   factory :status do 
     body { 'this is a short tweet' }
+    create { :user }
 
     trait :is_empty do 
       body { nil }
