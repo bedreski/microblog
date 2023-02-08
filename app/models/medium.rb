@@ -1,6 +1,7 @@
 class Medium < ApplicationRecord
   belongs_to :status
 
+  #a media needs a status to exist
   validates :kind, presence: true 
   validate :url do 
 
