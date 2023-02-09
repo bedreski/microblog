@@ -72,4 +72,5 @@ group :test do
   gem "webdrivers"
   gem "rspec-rails"
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'faker'
 end
