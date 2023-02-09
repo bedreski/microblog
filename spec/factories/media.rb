@@ -2,14 +2,17 @@ FactoryBot.define do
   factory :medium do
     kind { 1 }
     url { "https://wallpaperaccess.com/full/2971852.jpg" }
-    status { 1 }
-    create { :status } #media needs a status
+    # status { create :status } #raises error: no method "create" for Medium
 
-    trait :url_is_secure do 
-      URI.parse(url).scheme = 'https' 
+    trait :empty_url do 
+      url { nil }
     end 
 
-    #can I call model method here inside a 'trait' (for 'kind' attribute test)?
+    trait :not_empty_url do 
+      url { "scheme://host" }
+    end 
 
+    #trait valid url in the future ;-;
+    
   end
 end
