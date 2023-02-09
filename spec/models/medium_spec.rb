@@ -4,18 +4,21 @@ RSpec.describe Medium, type: :model do
   
   before { build :medium }
 
-  describe 'media type' do 
+  describe 'url' do 
 
-    context 'when is supported' do 
-      
+    context 'when is not empty' do 
+      subject { build :medium, :not_empty_url}
+
+      it {is_expected.to be_valid}
     end 
-  end 
 
-  describe 'URL' do 
+    context 'when is empty' do 
+      subject { build :medium, :empty_url }
 
-    context 'when is secure' do 
-      #test if url scheme is 'https'
+      it {is_expected.not_to be_valid}
     end 
+
+    #more tests
 
   end 
 end
