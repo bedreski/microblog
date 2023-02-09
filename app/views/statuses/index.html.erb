@@ -1,0 +1,28 @@
+<!--Dashboard/Index-->
+<h1>Dashboard</h1>
+
+<% if @all_status.empty? %>
+    <h3>A dashboard está vazia por enquanto</h3>
+    <a href="" >Adicionar novo status</a>
+<% else %> 
+    <table>
+        <thead>
+            <th>User</th>
+            <th>Status</th>
+            <th>Reply</th>
+            <th>Visualize</th>
+            <th>Delete</th>
+        </thead>
+        <tr>
+            <td> </td> <!--User goes here-->
+        </tr>
+        <% @all_status.each do |status| %>
+            <tr>
+                <td> <%= status.body %> </td>
+                <td></td>
+                <td></td>
+                <td></td> <!--actions-->
+            </tr>
+        <% end %>
+    </table>
+<% end %>
