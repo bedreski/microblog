@@ -16,6 +16,11 @@ RSpec.describe Status, type: :model do
       it { is_expected.not_to be_valid }
     end 
 
+    context 'when is supplied' do 
+      subject { build :status, :is_valid } 
+      it { is_expected.to be_valid }
+    end 
+
     context "has the belongs_to association with 'users' table" do 
       it { should belong_to(:user)}
     end 
