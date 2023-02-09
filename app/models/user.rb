@@ -1,11 +1,15 @@
 class User < ApplicationRecord
   has_many :statuses
+  has_many :followers_follow, class_name: 'Follow', foreign_key: :followed_id 
+  has_many :followers, through: :followers_follow, source: :follower
+  has_many :following_follow, class_name: 'Follow', foreign_key: :follower_id
+  has_many :followings, through: :following_follow, source: :followed
   
   validates :handle, presence: true, #"check if the value is either nil or a blank string, that is, a string that is either empty or consists of whitespace" [Rails Guides]
             length: { in: 4..12 }, 
             uniqueness: true, 
             format: {
-              with: /\A[\w]+\z/,
+              with: /\A\w+\z/,
               message: "only allows number, letters and underscore"
             }
 
