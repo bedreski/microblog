@@ -6,4 +6,5 @@ class Medium < ApplicationRecord
   validates :kind, presence: true
   validates :url, presence: true, format: { with: URI::DEFAULT_PARSER.make_regexp }
 
+  enum :kind, image: 0, video: 1
 end

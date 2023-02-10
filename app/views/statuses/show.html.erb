@@ -1,0 +1,10 @@
+<h1>Status detail</h1>
+
+<p><%= @status.user.display_name %></p>
+<p><%= @status.body %></p>
+
+<%= link_to 'Edit status', status_edit_path(@status)%>
+<%= link_to 'Back', root_path %>
+
+
+
