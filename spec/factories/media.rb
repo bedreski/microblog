@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :medium do
     kind { 1 }
     url { "https://wallpaperaccess.com/full/2971852.jpg" }
-    # status { create :status } #raises error: no method "create" for Medium
+    status { create (:status) } 
 
     trait :empty_url do 
       url { nil }
