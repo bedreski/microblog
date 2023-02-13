@@ -12,7 +12,6 @@ class StatusesController < ApplicationController
     
     # @related_status_id = params[:status_id]
     if params[:status_id]
-      puts '----------------------------------------------------------------'
       @status = Status.new(status_id: params[:status_id])
       # render :reply_form
     else
@@ -23,7 +22,6 @@ class StatusesController < ApplicationController
   end
 
   def create
-    puts '----------------------------------------------------------------'
     puts status_params 
     @status = Status.new(status_params)
     @user = User.new(handle: 'handlename', display_name: 'handle name', bio: nil, born_at: Date.current - 20.years)
