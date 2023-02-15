@@ -10,10 +10,8 @@ class StatusesController < ApplicationController
 
   def new 
     
-    # @related_status_id = params[:status_id]
-    if params[:status_id]
-      @status = Status.new(status_id: params[:status_id])
-      # render :reply_form
+    if params[:replied_id]
+      @status = Status.new(replied_id: params[:replied_id])
     else
       @status = Status.new 
     end
@@ -22,7 +20,7 @@ class StatusesController < ApplicationController
   end
 
   def create
-    puts status_params 
+
     @status = Status.new(status_params)
     @user = User.new(handle: 'handlename', display_name: 'handle name', bio: nil, born_at: Date.current - 20.years)
     @user.save
@@ -55,7 +53,7 @@ class StatusesController < ApplicationController
   private 
 
   def status_params 
-    params.require(:status).permit(:id, :body, :user_id, :status_id, media_attributes: [:kind, :url, :id])
+    params.require(:status).permit(:id, :body, :user_id, :replied_id, media_attributes: [:kind, :url, :id])
   end 
 
 end 

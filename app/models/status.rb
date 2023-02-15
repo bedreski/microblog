@@ -1,8 +1,8 @@
 class Status < ApplicationRecord
   belongs_to :user
-  belongs_to :status, optional: true
+  belongs_to :replied, class_name: 'Status', optional: true
   has_many :media, dependent: :destroy  
-  has_many :replies, class_name: 'Status', foreign_key: :status_id 
+  has_many :replies, class_name: 'Status', foreign_key: :replied_id, dependent: :destroy
   accepts_nested_attributes_for :media, limit: 4, allow_destroy: true 
   accepts_nested_attributes_for :replies, allow_destroy: true
 

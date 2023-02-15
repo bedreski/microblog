@@ -6,6 +6,10 @@
     </div>
   <% end %>
 
+  <% if status.replied_id %>
+    <%= form.hidden_field :replied_id, value: status.replied_id  %>
+  <% end %>
+
   <div>
     <h3>User</h3>
     <%= form.label "Choose user"%>

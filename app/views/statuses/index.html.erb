@@ -17,7 +17,7 @@
       <th></th>
     </thead>
     <tr>
-      <td> </td> <!--User goes here-->
+      <td></td> 
     </tr>
     <% @all_status.each do |status| %>
       <tr>
@@ -25,7 +25,7 @@
         <td> <%= status.body %> </td>
         <td><%= link_to "Details", status_path(status)%></td>
         <td><%= link_to "Delete", status_path(status), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></td> <!--actions-->
-        <td><%= link_to "Reply", status_path(status)%></td>
+        <td><%= link_to "Reply", status_new_path(status)%></td>
       </tr>
     <% end %>
   </table>

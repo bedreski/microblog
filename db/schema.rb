@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_10_144119) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_08_030416) do
   create_table "follows", force: :cascade do |t|
     t.integer "follower_id", null: false
     t.integer "followed_id", null: false
@@ -32,12 +32,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_10_144119) do
   create_table "statuses", force: :cascade do |t|
     t.text "body"
     t.integer "user_id", null: false
+    t.integer "replied_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "statuses_id"
-    t.integer "status_id"
-    t.index ["status_id"], name: "index_statuses_on_status_id"
-    t.index ["statuses_id"], name: "index_statuses_on_statuses_id"
+    t.index ["replied_id"], name: "index_statuses_on_replied_id"
     t.index ["user_id"], name: "index_statuses_on_user_id"
   end
 
@@ -53,5 +51,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_10_144119) do
   add_foreign_key "follows", "users", column: "followed_id"
   add_foreign_key "follows", "users", column: "follower_id"
   add_foreign_key "media", "statuses"
+  add_foreign_key "statuses", "statuses", column: "replied_id"
   add_foreign_key "statuses", "users"
 end
