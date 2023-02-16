@@ -5,13 +5,13 @@ RSpec.describe "Users", type: :request do
       let!(:user) { create(:user) }
 
       it 'return http status ok' do 
-        get '/users.json', headers: { format: :json }
+        get '/users', headers: { 'Accept': 'application/json' }
 
         expect(response).to have_http_status :ok 
       end 
 
       it 'have user display_name in the list' do 
-        get '/users.json', headers: { format: :json }
+        get '/users', headers: { 'Accept': 'application/json' }
         expect(response.body).to include(user.display_name)
       end 
     end 
@@ -19,7 +19,7 @@ RSpec.describe "Users", type: :request do
     context 'when user list is empty' do 
 
       it 'does not display user list' do 
-        get '/users.json', headers: { format: :json }
+        get '/users', headers: { 'Accept': 'application/json' }
         expect(response.body).to eq('[]')
       end 
       
