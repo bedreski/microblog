@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   patch '/statuses/:id', to: 'statuses#update' 
   delete '/statuses/:id', to: 'statuses#destroy'
 
-  get '/users.json', to: 'users#index'
+  get '/users', to: 'users#index'
 end
