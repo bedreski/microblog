@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get '/statuses/:id/edit', to: 'statuses#edit', as: 'status_edit'
   patch '/statuses/:id', to: 'statuses#update' 
   delete '/statuses/:id', to: 'statuses#destroy'
+
+  get '/users', to: 'users#index'
 end
