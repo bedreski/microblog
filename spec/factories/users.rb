@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user do
-    handle { 'Miso' }
+    handle { Faker::Lorem.characters(number: 8) }
     display_name  { 'KimM' }
     bio { 'some bio' }
     born_at { Date.today - 21.years }

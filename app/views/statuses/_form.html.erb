@@ -1,0 +1,41 @@
+<%= form_for status do |form| %>
+
+  <% if status.errors.any? %>
+    <div id='error_message'>
+      <p><%= status.errors.full_messages.join(' / ') %></p>
+    </div>
+  <% end %>
+
+  <% if status.replied_id %>
+    <%= form.hidden_field :replied_id, value: status.replied_id  %>
+  <% end %>
+
+  <div>
+    <h3>User</h3>
+    <%= form.label "Choose user"%>
+    <%= form.collection_select :user_id, User.all, :id, :handle, prompt: true%> 
+  </div>
+
+  <div>
+    <h3>Status</h3>
+    <%= form.label "Type status"%> <br>
+    <%= form.text_area :body, size: "50x10" %>
+  </div>
+
+  <div>
+    <h3>Media</h3>
+    <%= form.fields_for :media do |media_form| %>
+      <%= media_form.label :kind%>
+      <%= media_form.text_field :kind%> <br>
+
+      <%= media_form.label :url%> 
+      <%= media_form.text_field :url%> <br><br>
+    <% end %>
+      
+  </div>   
+
+  <div>
+    <%= form.submit "Save"%>
+  </div> 
+
+<% end %>
