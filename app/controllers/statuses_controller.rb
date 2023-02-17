@@ -6,6 +6,7 @@ class StatusesController < ApplicationController
 
   def show 
     @status = Status.find(params[:id])
+    @media = Medium.find(params[:id])
   end 
 
   def new 
@@ -16,7 +17,7 @@ class StatusesController < ApplicationController
       @status = Status.new 
     end
     
-    1.times { @status.media.build }
+    4.times { @status.media.build }
   end
 
   def create
