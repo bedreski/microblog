@@ -6,7 +6,6 @@ class StatusesController < ApplicationController
 
   def show 
     @status = Status.find(params[:id])
-    @media = Medium.find(params[:id])
   end 
 
   def new 
