@@ -73,4 +73,5 @@ group :test do
   gem "rspec-rails"
   gem 'shoulda-matchers', '~> 5.0'
   gem 'faker'
+  gem 'rails-controller-testing'
 end
